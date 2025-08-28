@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="/javascripts/project.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+</head>
+<form action="/employee/final_edit_delete"  method="post">
+<input type="hidden" value="<%=data.employee_id%>" name="employee_id">
+<div class="maincontainer">
+    <div class="box">
+        <div class="headingbox">
+            <img src="/images/hero.png" style="width: 25px;margin-right: 5px;">
+            <div style="display: flex;flex-direction: column;">
+                <div style="font-size: 16px; font-weight:bold;color: #130f40;"> Employee Interface</div>
+                <div style="font-size: 12px;font-weight: 700;color: #686de0;">Edit/Delete</div>
+            </div>
+
+        </div>
+        <hr color="#130f40" style="width: 98%;">
+        <div class="container" style="width: 98%;">
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" class="form-control" required pattern="[a-z A-Z]+"
+                        title="Pls input Alphabets only" placeholder="Employee Name" name="employee_name" value="<%=data.employee_name%>">
+                </div>
+                <div class="col-6">
+                    <input type="date"  class="form-control" required placeholder="DOB" name="dob" value="<%=data.dob %>">
+
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-5">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" required name="gender" <%=data.gender=="Male"?'checked':'' %> value="Male" class="form-input-check">Male
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" required name="gender" value="Female" <%=data.gender=="Female"?'checked':'' %> class="form-input-check">Female
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="form-check form-check-inline">
+                        <input type="text" required class="form-control" placeholder="Address" name="address" value="<%=data.address%>">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-6">
+                        <select class="form-select" required name="state_id" id="state_id">
+                            <option selected value="<%=data.state_id%>"><%=data.statename%></option>
+
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <select class="form-select" required name="city_id" id="city_id">
+                            <option selected value="<%=data.city_id%>"><%=data.cityname%></option>
+
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-4">
+                        <select class="form-select" required name="department" >
+                            <option selected><%=data.department%></option>
+
+                            <option>Production</option>
+                            <option>Accounts</option>
+                            <option>Sales</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select required class="form-select" name="grade">
+                            <option selected><%=data.grade%></option>
+                            <option>One</option>
+                            <option>Two</option>
+                            <option>Three</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" required pattern="[0-9]{5,15}" title="Pls input Number only" name="salary"
+                            placeholder="Enter Salary" class="form-control" value="<%=data.salary%>">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-6" style="display: flex; justify-content: center; align-items: center;">
+                        <button type="submit" name="btn" value="Edit" class="btn btn-primary"
+                            style="width: 100px;">Edit</button>
+                    </div>
+                    <div class="col-6" style="display: flex; justify-content: center; align-items: center;">
+                        <button type="submit" name="btn" value="Delete" class="btn btn-primary"
+                            style="width: 100px;">Delete</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+
+</html>

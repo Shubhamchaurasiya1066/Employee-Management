@@ -1,0 +1,76 @@
+<html>
+    <head>
+    <form action="/employee/insert_record" enctype="multipart/form-data" method="post">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="/javascripts/project.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="/stylesheets/style.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="maincontainer">
+    <div class="box">
+        <div class="headingbox">
+            <img src="/images/hero.png" style="width: 25px;margin-right: 5px;">
+            <div style="display: flex;flex-direction: column;">
+                <div style="font-size: 16px; font-weight:bold;color: #130f40;"> Employee Interface</div>
+                <div style="font-size: 12px;font-weight: 700;color: #686de0;">Add new Employee</div>
+            </div>
+
+        </div>
+        <hr color="#130f40" style="width: 98%;">
+        <div class="container" style="width: 98%;">
+    <% if(!status){ %>
+    <h1> <%=message %></h1> 
+   <% } else { %>
+       
+       <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Employee</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Address</th>
+            <th scope="col">Department</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Salary</th>
+            <th scope="col">picture</th>
+            <th scope="col">Update</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+            <% data.map((item,i)=>{ %>
+             
+                <tr>
+                    <th scope="row"><%=i+1 %></th>
+                    <td><%=item.employee_id %><br><%=item.employee_name%></td>
+                    <td><%=item.dob %><br><%=item.gender%></td>
+                    <td><%=item.address %><br><%=item.cityname %>,<%=item.statename%></td>
+                    <td><%=item.department %></td>
+                    <td><%=item.grade %></td>
+                    <td><%=item.salary %></td>
+                
+                    <td><a href="/employee/show_picture?employee_id=<%=item.employee_id %>&employee_name=<%=item.employee_name%>&picture=<%=item.picture%>"><img src="/images/<%=item.picture %>" style="width: 60px; height: 60px; border-radius: 100%;"/></a></td>
+                    <td><a href="/employee/edit_delete_display?employee_id=<%=item.employee_id%>" style="cursor: pointer;text-decoration: none;"><img src="/images/edit.png" style="width: 28px;height: 28px;"/><img src="/images/delete.png" style="width: 28px;height: 28px;"/></a></td>
+                    
+                </tr>
+       
+
+     <% }) %>
+            
+        </tbody>
+       </table>
+
+   <% } %>
+   </body>
+</html>
