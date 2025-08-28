@@ -1,0 +1,30 @@
+.maincontainer {
+        letter-spacing: 0.5px;
+        font-family: Roboto Condensed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        background: #ffffff;
+        width: 900px;
+        height: auto;
+        flex-direction: column;
+        border: 1px solid#636e72;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .headingbox {
+        display: flex;
+        border-radius: 5px;
+        background-color: #c7ecee;
+        width: 180px;
+        margin: 10px 10px 0px 10px;
+        padding: 5px;
+        align-self: flex-start;
+    }

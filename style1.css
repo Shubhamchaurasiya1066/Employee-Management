@@ -1,0 +1,17 @@
+body{
+font-family: sans-serif;
+text-transform: uppercase;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.container{
+    background: grey;
+    padding: 40;
+    padding-bottom:10px;
+    border-radius: 10px;
+    height: 350;
+}
+h2{
+    text-align: center;
+}
